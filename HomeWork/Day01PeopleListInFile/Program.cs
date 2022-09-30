@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 //include a toString method to display person info
 /**
  * static void AddPersonInfo()
@@ -26,8 +27,8 @@ namespace Day01PeopleListInFile
             _age = age;
             _city = city;
         }
-        public string Name 
-            {
+        public string Name
+        {
             get { return _name; }
             set
             {
@@ -56,14 +57,10 @@ namespace Day01PeopleListInFile
             }
         }
         //the next part will formart
-        public string ToString(string format)
+        public override string ToString()
         {
-            if (!string.IsNullOrEmpty(format))
                 return String.Format("This is {0}, they are {1} years old and they are situated in {2}.", _name, _age, _city);
-            else
-            {
-                throw new ArgumentException("Input either empty or invalid");
-            }      
+           
         }
     }
     internal class Program
@@ -109,17 +106,16 @@ namespace Day01PeopleListInFile
 
         static void Main(string[] args)
         {
-            
+
             //start of program, read data from file
             //==> bring data into people list using following method
             //static void ReadAllPeopleFromFile()
 
             //test person
-            Person person = new Person("kewldeewd", 99, "mtl");
-
-            Console.Write("anything";
+            Person person = new Person("1", 151, "mtl");
+            //Console.Write(person.ToString()); proper validation
             Console.ReadKey();
-            
+
 
             //end of program, dave data from people list onto the same file using following methid
             //static void SaveAllPeopleToFile()
