@@ -5,15 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:hwTempConv"
         mc:Ignorable="d"
-        Title="MainWindow" Height="150" Width="500">
+        Title="MainWindow" Height="180" Width="540" ResizeMode="NoResize">
     <Grid>
         <ComboBox Name="InputSelected" HorizontalAlignment="Left" Margin="97,67,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="InputSelected_SelectionChanged">
-            <ComboBoxItem IsSelected="True">Celsius</ComboBoxItem>
-            <ComboBoxItem>Fahrenheit</ComboBoxItem>
+            <ComboBoxItem Name="InC" IsSelected="True" Content="Celsius"/>
+            <ComboBoxItem Name="InF" Content="Fahrenheit"/>
         </ComboBox>
         <ComboBox x:Name="OutputSelected" HorizontalAlignment="Left" Margin="97,94,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="InputSelected_SelectionChanged">
-            <ComboBoxItem IsSelected="True" Content="Celsius"/>
-            <ComboBoxItem Content="Fahrenheit"/>
+            <ComboBoxItem Name="OutC" Content="Celsius"/>
+            <ComboBoxItem Name="OutF" IsSelected="True" Content="Fahrenheit"/>
         </ComboBox>
+        <Label Content="Input" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" Width="82"/>
+        <Label Content="Output" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="82"/>
+        <TextBox Name="InBox"  HorizontalAlignment="Left" Margin="222,69,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Height="47" FontSize="24" FontFamily="Comic Sans MS"/>
+        <Button Content="Go" HorizontalAlignment="Left" Margin="347,69,0,0" VerticalAlignment="Top" Height="47" Width="143" Click="Button_Click"/>
+        <Label Content="Digital Unit of Temperature Converter" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="52" Width="480" FontWeight="Bold" FontSize="26" FontStyle="Italic"/>
+        <Label Name="Response"  Content="..." HorizontalAlignment="Left" Height="33" Margin="97,121,0,0" VerticalAlignment="Top" Width="393"/>
     </Grid>
 </Window>
