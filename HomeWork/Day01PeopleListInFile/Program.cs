@@ -16,16 +16,16 @@ namespace Day01PeopleListInFile
 {
     public class Person
     {
-        public string _name; // Name 2-100 characters long, not containing semicolons
-        public int _age; // Age 0-150
-        public string _city; // City 2-100 characters long, not containing semicolons
+        //public string _name; // Name 2-100 characters long, not containing semicolons
+        //public int _age; // Age 0-150
+        //public string _city; // City 2-100 characters long, not containing semicolons
 
         //constructor
         public Person(string name, int age, string city)
         {
-            _name = name;
-            _age = age;
-            _city = city;
+            Name = name;
+            Age = age;
+            City = city;
         }
         public string Name
         {
@@ -43,7 +43,7 @@ namespace Day01PeopleListInFile
             set
             {
                 _age = value;
-                if (value < 0 || value > 150)
+                if (value < 0 || value > 150 || value.Contains(";"))
                     throw new ArgumentException("whoaa that's either too young or waay too old!");
             }
         }
@@ -56,20 +56,32 @@ namespace Day01PeopleListInFile
                     throw new ArgumentException("City must be 2-100 characters long, not containing semicolons");
             }
         }
-        //the next part will formart
+        //the next part will display
         public override string ToString()
         {
-                return String.Format("This is {0}, they are {1} years old and they are situated in {2}.", _name, _age, _city);
-           
+                return String.Format("This is {0}, they are {1} years old and they are situated in {2}.", Name, Age, City);
         }
     }
     internal class Program
     {
+        const string DataFileName = @"..\..\people.txt"
+
         static List<Person> people = new List<Person>();
+
+        private static int getMenuChoice()
+        {
+            Console.Write("What do you want to do?\n"
+                +"1. Add person info\n"
+                +"2. List persons info\n"
+                +"3. Find a person by name\n"
+                +"4. Find all persons younger than age\n"
+                +"0. Exit\n");
+            return (int.TryParse(Console.ReadLine(), out int choice)) ? choice: -1;
+        }
 
         static void AddPersonInfo()
         {
-            //
+            //write excepotions as comment on left go constructor call for example
         }
         static void ListAllPersonsInfo()
         {
@@ -112,8 +124,8 @@ namespace Day01PeopleListInFile
             //static void ReadAllPeopleFromFile()
 
             //test person
-            Person person = new Person("1", 151, "mtl");
-            //Console.Write(person.ToString()); proper validation
+            Person people1 = new Person("dewd", 151, "mtl");
+            Console.Write(people1.ToString());
             Console.ReadKey();
 
 

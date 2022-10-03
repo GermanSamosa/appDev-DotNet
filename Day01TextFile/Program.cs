@@ -7,32 +7,28 @@ namespace Day01TextFile
     {
         static void Main(string[] args)
         {
+        //ask user and take info
+                        string question = "Please Enter Your Name \n";
+                        Console.Write(question);
+                        string answer = Console.ReadLine();
+                        int lines = 3;
+
+                        string[] text;
 
 
+                        //3 things
+                        //create file
+                        string folderName = @"c:\Users\School\Desktop\webDev-DotNet\appDev-DotNet";
+
+                        string pathString = @"\Users\School\Desktop\webDev-DotNet\appDev-DotNet\FromCsharp"; //you can also specify by @"..\..\"
+
+                        string fileName = "MyNewFile.txt";
             try
-            {
-
-                //ask user and take info
-                string question = "Please Enter Your Name \n";
-                Console.Write(question);
-                string answer = Console.ReadLine();
-                int lines = 3;
-
-                string[] text;
-
-
-                //3 things
-                //create file
-                string folderName = @"c:\Users\School\Desktop\webDev-DotNet\appDev-DotNet";
-
-                string pathString = @"\Users\School\Desktop\webDev-DotNet\appDev-DotNet\FromCsharp";
-
-                string fileName = "MyNewFile.txt";
-
+            { 
                 pathString = System.IO.Path.Combine(pathString, fileName);
                 Console.WriteLine("Path to my file: {0}\n", pathString);
                 //verify it doesnt exist
-                if (!System.IO.File.Exists(pathString))
+                if (!System.IO.File.Exists(pathString))//dont forget to close the file!
                 {
                     using (System.IO.FileStream fs = System.IO.File.Create(pathString))
                     {
@@ -72,7 +68,11 @@ namespace Day01TextFile
             }
             catch
             {
-                //
+                /** 
+                 * exceptions
+                 *  File IO
+                 *  //system exception will catch most!
+                 * **/
             }
             finally
             {
