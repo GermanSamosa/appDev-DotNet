@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Day02WPFHelloWorld
+namespace hwTempConv
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,19 +23,6 @@ namespace Day02WPFHelloWorld
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void BtnSayHelloLabel_Click(object sender, RoutedEventArgs e)
-        {
-            string name = TbxName.Text;
-            //validate here
-            //error message box
-            LblGreeting.Content = $"Hello {name}, nice to meet you!";
-        }
-
-        private void BtnSayHelloPopup_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
